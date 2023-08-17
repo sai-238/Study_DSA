@@ -1,0 +1,21 @@
+ARRAY
+    => We can access a given item based on the index extremely fast in array which is known as random access.  
+    => the time complexity foer the above item access is O(1).
+ 
+LIST :
+    => the first conclusion that everything is an object in Python : list stores the references and not the acutal value. 
+    => In a list of elements a number's example { 21,23,4,5,6 } it does not sotre 23 it store's the reference which is pointing to 23.
+    => each refrence is 8 bytes in size.  
+    
+NUMPY : * Is a python library, where array's are stored in a continuous block of memory - item's are right next to each other. 
+        * The references are located right next to each other but the items that the refrences are pointing is located in different regions of memory.   
+
+LINKED_LIST:
+    => It's main moto to store elements in efficient way 
+    => In array we have a huge disadvantage : we have to shift a lot of items to store a item in a specific spot 
+        * This problem is solved with the help of LINKED_LIST
+    => We have to start with the head node inorder to go the desired node.
+        * Ever node store's the data itself and reference of the next node. 
+        * The last node's reference is always null.
+        * That's why LINKED_LIST'S need more memmory than array's   
+    => random access is not possible in linked LINKED_LIST
