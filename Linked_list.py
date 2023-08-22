@@ -114,17 +114,45 @@ class LinkedList:
         else:
             n.ref = n.ref.ref
 
+    def get_middle_node(self):
+        fast_pointer = self.head
+        slow_pointer = self.head
+
+        while fast_pointer.ref and fast_pointer.ref.ref:
+            fast_pointer = fast_pointer.ref.ref
+            slow_pointer = slow_pointer.ref
+        print(slow_pointer.data)
+                 
+    def reverse(self):
+        current_node = self.head 
+        previous_node = None
+        next_node = None 
+
+        while current_node is not None:
+            next_node = current_node.ref
+            current_node.ref = previous_node
+            previous_node = current_node
+            current_node = next_node
         
+        self.head = previous_node
+
 ll1 = LinkedList()
-ll1.add_begin('sai')
 ll1.add_begin(10)
 ll1.add_begin(20)
-ll1.add_end(30)
+ll1.add_begin(30)
+ll1.add_end(40)
+ll1.add_end(50)
 ll1.add_after(100,10)
-ll1.add_before(200,20)
-ll1.inset_empty(30)
+ll1.add_before(200,30)
+ll1.inset_empty(50)
 ll1.delete_begin()
 ll1.delete_last()
 ll1.delete_by_value(10)
-ll1.print_LL()       
+ll1.get_middle_node()
+ll1.print_LL()
+print()
+print(" Reversed Linked List ")
+ll1.reverse()
+ll1.print_LL() 
+     
         
