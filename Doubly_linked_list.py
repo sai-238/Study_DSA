@@ -20,7 +20,7 @@ class DoublyLL:
         else:
             n = self.head
             while n is not None:
-                print(n.data,"-->",end = " " )
+                print(str(n.data),"-->",end = " " )
                 n = n.nref
 
 # * Traversal method Backward
@@ -34,7 +34,7 @@ class DoublyLL:
             while n.nref is not None:
                 n = n.nref
             while n is not None:
-                print(n.data,"-->",end = " " )
+                print(str(n.data),"-->",end = " " )
                 n = n.pref
 
 # todo => add the node when linked list is empty 
