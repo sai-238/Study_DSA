@@ -1,21 +1,135 @@
 ARRAY
     => We can access a given item based on the index extremely fast in array which is known as random access.  
     => the time complexity foer the above item access is O(1).
- 
+        
+        search              = O(1)
+        insert at the start = O(N)
+        insert at the end   = O(1)
+        waste space         = 0
+        remove an item with the index = O(N)
+        revoce an item at arbitary position = O(N)
+
 LIST :
     => the first conclusion that everything is an object in Python : list stores the references and not the acutal value. 
     => In a list of elements a number's example { 21,23,4,5,6 } it does not sotre 23 it store's the reference which is pointing to 23.
     => each refrence is 8 bytes in size.  
     
+
 NUMPY : * Is a python library, where array's are stored in a continuous block of memory - item's are right next to each other. 
         * The references are located right next to each other but the items that the refrences are pointing is located in different regions of memory.   
+
 
 LINKED_LIST:
     => It's main moto to store elements in efficient way 
     => In array we have a huge disadvantage : we have to shift a lot of items to store a item in a specific spot 
         * This problem is solved with the help of LINKED_LIST
-    => We have to start with the head node inorder to go the desired node.
+    => We have to start with the head node inorder to go to the desired node.
         * Ever node store's the data itself and reference of the next node. 
         * The last node's reference is always null.
         * That's why LINKED_LIST'S need more memmory than array's   
     => random access is not possible in linked LINKED_LIST
+        
+        search              = O(N)
+        insert at the start = O(1)  
+        insert at the end   = O(N)
+        waste space         = 0
+        remove an item      = O(N)
+        remove the current item = O(1)
+
+DOUBLY_LINKED_LIST
+    => It's main moto to store and remove elements in efficient way same as linked list 
+    => We have to start with the head node inorder to go to the desired node.
+        * Ever node store's the data itself and reference of the next node and refrence of the previous node. 
+        * The last node's next reference is always null.
+        * That's why DOUBLY_LINKED_LIST need more memmory than LINKED_LIST'S
+    => random access is not possible as same as LINKED_LIST
+    => We can access the DOUBLY_LINKED_LIST in both direction ( From Backward aswell ) 
+
+        search              = O(N)
+        insert at the start = O(1)  
+        insert at the end   = O(1)
+        waste space         = 0
+        remove an item      = O(N)
+        remove the current item = O(1)
+
+STACK'S
+    --> It is a abstract data type 
+    --> It has a so called LIFO ( last in first out ) structure  - last item we inserted is the first item we take out 
+    --> Basic operation's are pop(), peek() and push()
+    --> 
+MEMORY MANAGEMENT 
+    STACK MEMORY
+        ~~> Stack Memory is a special region in the RAM  ( Random access memmory )
+        ~~> This is a special data type ( Stack ) that stores local variables and method calls
+        ~~> It is small in size but fast to access 
+        ~~> No Fragmentation ( Fragmentation :Memory fragmentation is when the sum of the available space in a memory heap is large enough to satisfy memory allocation request but
+                             the size of any individual fragment (or contiguous fragments) is too small to satisfy that memory allocation request )
+
+    HEAP MEMORY
+        ~~> Heap memory is a special region in the RAM, where dynamic memory allocation takes place 
+        ~~> The size of the heap memory is way larger than the size of the stack memory
+        ~~> It is large in size but slow to access 
+
+QUEUE'S
+    __> It is a abstract data type - and it can be implemented either with with array or with linked list.
+    __> It has so called FIFO structure - first item we insert is the first we take out.
+    __> Basic operation's are enqueue() , dequeue() and peek().
+    __> Has several application like operating system and thread mangement and queues are important in CPU scheduling.
+    
+
+TREE'S 
+    ++> Tree is a G(Vertices , Edge's) undirected in which any two vertices are connected by exactly one patch or equivalently a connected acyclic undirected graph.
+    ++> Tree like structure's are used in operating system's especially like window's all the file's are stored in tree like structure.
+    ++> To access all the node's we have access the root node exclusively   
+    ++> There are so called leaf node's where there are no children node's connected to it 
+    ++> There are parent node where you can heve atleast one child node to as many you want or as many given
+    ++> The running time of the binary search trees depends on the h height of the binary search tree.
+    ++> oprating systems relies heavily on this data structure.  
+        
+    BINARY SEARCH TREE'S 
+        $$> If we store in a sorted order - Then we can achieve O(logN) running time !! It's aim to store the item's efficiently
+        $$> Every node in the tree can have at most 2 children ( left child and right child )
+        $$> Left child is smaller than parent node 
+        $$> Right child is greater than parent node 
+        $$> Every decision can get rid of half of the data and this is how we achieve O(logN) running time
+        $$> We have to consider a sorted order in the tree,    
+            $$$> The smallest item or node in the right subtree is called successor
+            $$$> The largest item or node in the left subtree is called predecessor
+        $$$> No random access in tree's ,the tree may be imbalanced and also has no O(1) operation's as well 
+        
+        search              = O(logN)
+        insertion           = O(logN)
+        remove an item      = O(logN)
+
+        HEIGHT OF THE TREE : is the number of edges on the longest downward path between the root and a leaf node ,h = logN we have to maintain this h = logN to implement the opreation's at O(logN).
+                height of the leaf node = 0
+                height of the null node = -1
+            height = max( left child's height + right child's height ) + 1 
+            
+    AVL TREE'S 
+        %%> This data structure is very similar to binary search trees, but it is so called balanced binary search tree 
+        %%> It has a guaranteed O(logN) running time 
+        %%> AVL tree's are faster than the red-black tree.
+        %%> This algorithm is going to check whether the tree is balance or not in every iteration's and if the tree is imbalanced then we have to make rotations.
+        %%> | h^left - h^right | > 1 all subtrees height parameter can not differ more than 1 
+        %%> Usually the difference in the height parameters is called balance factor
+        
+        ROTATION'S 
+            %%> There are two case's
+                    :: Left-heavy case = When the left subtree contains more node's and when the balance factors are positive ,then we have to make right rotation.
+                    :: Right-heavy case = When the right subtree contains more node's and when the balance factors are negative ,then we have to make left rotation.
+            %%> Rotation's are extremely fast - we just have to update the refrences in O(1) constant running time 
+            %%> Rotation's does not change the properties of the tree.
+            %%> In order traversal remains the same as well as the parent-child replationship in the tree.
+            %%> There may be other issuse because of rotations
+                    :: we have to check upto the root node whether to make further roatations or not - it takes O(logN) running time.
+         
+            %%> 
+                
+        search              = O(logN)
+        insertion           = O(logN)
+        remove an item      = O(logN)
+
+    RED-BLACK TREE's
+        @@> Red black tree are faster to constuct because it is not as balanced as AVL Trees (But it is not as fast as AVL Trees)
+        @@> 
