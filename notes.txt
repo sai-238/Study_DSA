@@ -109,7 +109,7 @@ TREE'S
     AVL TREE'S 
         %%> This data structure is very similar to binary search trees, but it is so called balanced binary search tree 
         %%> It has a guaranteed O(logN) running time 
-        %%> AVL tree's are faster than the red-black tree.
+        %%> AVL tree's are faster than the red-black tree It provides extremely fast-look-ups( Search operations).
         %%> This algorithm is going to check whether the tree is balance or not in every iteration's and if the tree is imbalanced then we have to make rotations.
         %%> | h^left - h^right | > 1 all subtrees height parameter can not differ more than 1 
         %%> Usually the difference in the height parameters is called balance factor
@@ -132,4 +132,18 @@ TREE'S
 
     RED-BLACK TREE's
         @@> Red black tree are faster to constuct because it is not as balanced as AVL Trees (But it is not as fast as AVL Trees)
-        @@> 
+        @@> It has a guaranteed =O(logN) running time.
+        @@> We have to track the red-black properties for all the node in the binary tree, have to make rotations if necessary to rebalance search trees.
+        @@> we always insert new nodes with color red,ROOT NODE IS ALWAYS BLACK ( so we have to recolor )
+        @@>For insert intensive applications it is best option, inserting new item is extreamly fast.
+
+        PROPERTIE'S
+            1: Each node is either black or red 
+            2: The root node is always black
+            3: All lead nodes (NULL pointer's) are black
+            4: Every red node must have two black child nodes and no other children- it must have a black parent.
+            5: Every path from a given node to any of its descendant NULL nodes contains the same number of black nodes. 
+
+        search              = O(logN)
+        insertion           = O(logN)
+        remove an item      = O(logN)
