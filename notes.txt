@@ -9,6 +9,7 @@ ARRAY
         remove an item with the index = O(N)
         revoce an item at arbitary position = O(N)
 
+
 LIST :
     => the first conclusion that everything is an object in Python : list stores the references and not the acutal value. 
     => In a list of elements a number's example { 21,23,4,5,6 } it does not sotre 23 it store's the reference which is pointing to 23.
@@ -36,6 +37,7 @@ LINKED_LIST:
         remove an item      = O(N)
         remove the current item = O(1)
 
+
 DOUBLY_LINKED_LIST
     => It's main moto to store and remove elements in efficient way same as linked list 
     => We have to start with the head node inorder to go to the desired node.
@@ -52,11 +54,13 @@ DOUBLY_LINKED_LIST
         remove an item      = O(N)
         remove the current item = O(1)
 
-STACK'S
+
+STACK
     --> It is a abstract data type 
     --> It has a so called LIFO ( last in first out ) structure  - last item we inserted is the first item we take out 
     --> Basic operation's are pop(), peek() and push()
     --> 
+
 MEMORY MANAGEMENT 
     STACK MEMORY
         ~~> Stack Memory is a special region in the RAM  ( Random access memmory )
@@ -70,14 +74,15 @@ MEMORY MANAGEMENT
         ~~> The size of the heap memory is way larger than the size of the stack memory
         ~~> It is large in size but slow to access 
 
-QUEUE'S
+
+QUEUE
     __> It is a abstract data type - and it can be implemented either with with array or with linked list.
     __> It has so called FIFO structure - first item we insert is the first we take out.
     __> Basic operation's are enqueue() , dequeue() and peek().
     __> Has several application like operating system and thread mangement and queues are important in CPU scheduling.
     
 
-TREE'S 
+TREE
     ++> Tree is a G(Vertices , Edge's) undirected in which any two vertices are connected by exactly one patch or equivalently a connected acyclic undirected graph.
     ++> Tree like structure's are used in operating system's especially like window's all the file's are stored in tree like structure.
     ++> To access all the node's we have access the root node exclusively   
@@ -147,3 +152,9 @@ TREE'S
         search              = O(logN)
         insertion           = O(logN)
         remove an item      = O(logN)
+
+
+HEAP 
+    --> Binary Heap 
+    --> Binomial Heap  
+    --> Fibonacci Heap
