@@ -220,3 +220,62 @@ HEAP
             insertion           = O(1)
             decrease key (swap) = O(1)
             merge               = O(1)    
+
+ASSOCIATIVE ARRAYS
+    (-) Associative arrays ( maps and dictionaries ) are abstract data types.
+    (-) Composed of a collection of key- valu pairs where eacch key appears at mosst once in the collection.
+    (-) Most of the timmes we implement associative arrays with hastables but binary search trees can be used as well 
+    (-) The aim is to reach O(1) time complexity for most of the operations.
+     
+    HASHTABLES
+        [-] The motivation is that we want to store (key, value) pairs  efficiently - so that the insert and remove operations takes O(1) running time.
+        [-] Keys must be unique to avoid using the same indexes.
+        [-] h(x) hash-function tranforms the keys into an index in range [0,m-1].
+        [-] It should handle any types - strings, floats, integer or even custom object as well.
+        [-] If we have integer keys we just have to use the modulo ( % ) operator to transform the number into range [0, m-1].
+        [-] We can use the ASCCII valuse of the letters when dealing with strings.
+
+            search              = O(1)
+            insertion           = O(1)
+            deletion            = O(1)
+            
+            COLLISIONS
+                {-} Collisions occur when the h(x) hash-function maps two keys to the same array slot (bucket).
+                {-} If thee hash-function is perfect then there are no collision.
+                {-} There are several approaches to deal with collisions: CHAINING , OPEN ADRESSING
+                
+                CHAINING 
+                    <-> We store items in the same array (bucket) with same indexes in a llinked list data structure.
+                    <-> In worst case senario we may end up in LINKED_LIST with O(N) running time for most of the operations.
+
+                OPEN ADDRESSING  
+                    <-> If there is a collision we generate a new index for the item (try to find another bucket).
+                        
+                        LINEAR PROBING
+                            "-" If collision happened at array index k then we try k+1, k+2, k+3,... until we find an empty bucket.
+                            "-" But it has the better cache performance than other approaches.
+
+                        QUADRATIC PROBING 
+                            "-" If collision happpend at array index k then we try successive values of an 
+                                arbitary quadratic polynomial (array slots 1,4,9,16,.., steps away from the collision).
+                            "-" there will be no clusters (unlike linear probing ).
+                            "-" But no cache advantages ( items are far away in memory ).  
+
+                        REHASING
+                            "-" IF collision happened at array index k then we use the h(x) hash-function again to generate a new index.
+
+            LOAD FACTOR 
+                {-} The p(x) probability of collision is not constant.
+                {-} The more items are there in the hastable the higher the p(x) probability of collision.
+                {-} This is why we have to define a new parameter of the hashtable - the so-called load factor.
+                {-} Load Factor = the number of actual items (n) / (m) the size of the array.
+                {-} Based on load factor we can resize the hashtable.
+                {-} Python ( when load factor > 0.66 ) and java ( When load factor > 0.75 ) resize the hashtable automatically to avoid too many collisions.
+
+                SMALL LOAD FACTOR
+                    <-> The hastable is nearly empty which means low p(x) probability of collisions.
+                    <-> But of course a lot of memory is wasted.
+
+                HIGH LOAD FACTOR
+                    <-> The hastable is nearly full which means high p(x) probability of collisions.
+                    <-> No memory is wasted but the running time may be reduced to O(N) linear running time.
