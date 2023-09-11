@@ -7,20 +7,21 @@ ARRAY
         insert at the end   = O(1)
         waste space         = 0
         remove an item with the index = O(N)
-        revoce an item at arbitary position = O(N)
+        remove an item at arbitary position = O(N)
 
 
-LIST :
+LIST 
     => the first conclusion that everything is an object in Python : list stores the references and not the acutal value. 
     => In a list of elements a number's example { 21,23,4,5,6 } it does not sotre 23 it store's the reference which is pointing to 23.
     => each refrence is 8 bytes in size.  
     
 
-NUMPY : * Is a python library, where array's are stored in a continuous block of memory - item's are right next to each other. 
-        * The references are located right next to each other but the items that the refrences are pointing is located in different regions of memory.   
+NUMPY 
+    * Is a python library, where array's are stored in a continuous block of memory - item's are right next to each other. 
+    * The references are located right next to each other but the items that the refrences are pointing is located in different regions of memory.   
 
 
-LINKED_LIST:
+LINKED_LIST
     => It's main moto to store elements in efficient way 
     => In array we have a huge disadvantage : we have to shift a lot of items to store a item in a specific spot 
         * This problem is solved with the help of LINKED_LIST
@@ -59,7 +60,7 @@ STACK
     --> It is a abstract data type 
     --> It has a so called LIFO ( last in first out ) structure  - last item we inserted is the first item we take out 
     --> Basic operation's are pop(), peek() and push()
-    --> 
+
 
 MEMORY MANAGEMENT 
     STACK MEMORY
@@ -80,7 +81,7 @@ QUEUE
     __> It has so called FIFO structure - first item we insert is the first we take out.
     __> Basic operation's are enqueue() , dequeue() and peek().
     __> Has several application like operating system and thread mangement and queues are important in CPU scheduling.
-    
+
 
 TREE
     ++> Tree is a G(Vertices , Edge's) undirected in which any two vertices are connected by exactly one patch or equivalently a connected acyclic undirected graph.
@@ -154,7 +155,68 @@ TREE
         remove an item      = O(logN)
 
 
-HEAP 
-    --> Binary Heap 
-    --> Binomial Heap  
-    --> Fibonacci Heap
+HEAP
+    --> Heaps are basically binary trees.
+    --> Heaps are complete binary tree so it cannot be imbalanced.
+    --> We will use one dimensional array to represent the item's in the heap.
+    --> We insert items from left to right across each row.
+    --> formula to find the i^th child, If lef child = 2*i + 1 , If right child = 2*i + 1.
+    --> formula to find the parent of i^th child = i - 1 // 2 
+    
+        searching               = O(LogN)
+        Find min / max          = O(1) 
+        insertion               = O(logN)
+        removing root node      = O(logN)
+        remove an arbitary item = O(N) + O(logN) = O(N)
+
+    PRIORITY QUEUES 
+        ->> It is a abstract data type such as queue.
+        ->> Every item has an additional property - the so -called priority value.
+        ->> In priority queue an element with high priority is serverd before an element with lower priority.
+        ->> priority queues are usually implemented with heap data structure but it can be implemented with self balancing trees as well.
+
+    HEAPSORT
+        --< It is a comparison-based sorting algorithm.
+        --< We can constuct a sorting algorithm based on the heap data structure.     
+        --< We can achive at O(NlogN) running time for sorting.
+        --< It is bit slower in practice on most machines than as well-implemneted quicksort.
+        --< It is a in-place algorithm ( DOES NOT NEED ADDITIONAL MEMORY ). 
+
+            insertion = O(NlogN)
+      
+    Binary Heap 
+        >> Max Heap 
+            ->> In a max heap the keys of parent node are always greater than or equal to those of the children. The highest key(max value) is in the root node.           
+            ->> We can get the max value in O(1) running. 
+        >> Min Heap
+            ->> In min heap the keys of parent node are less than or equal to those of the children. The highest key(min value) is in the root node.
+            ->> We can get the min value in O(1) running. 
+       
+            Find min            = O(1)
+            delete min          = O(logN)
+            insertion           = O(logN)
+            decrease key (swap) = O(logN)
+            merge               =  -
+
+    BINOMIAL HEAP
+        ~~< Similar to binary heap but also supports quick merging of two heaps. 
+        ~~< A binomial heap is implemented as a collection trees.
+        ~~< O(logN) insertion time complexity can be reduced to O(1) constant time complexity.   
+
+            Find min            = O(1)
+            delete min          = O(logN)
+            insertion           = O(1)
+            decrease key (swap) = O(logN)
+            merge               = O(logN)
+
+    FIBONACCI HEAP 
+        ##> Fibonacci heaps are faster than the classic binary heap and also binomial heap.
+        ##> But it is very hard to implement efficiently so usually does not worth the effort  
+        ##> Unlike binary heaps it can have several children - the number of children are usually kept low.
+        ##> We can achieve O(1) running time for insertion operation instead of O(logN) running time.
+
+            Find min            = O(1)
+            delete min          = O(logN)
+            insertion           = O(1)
+            decrease key (swap) = O(1)
+            merge               = O(1)    
