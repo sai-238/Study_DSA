@@ -243,6 +243,7 @@ ASSOCIATIVE ARRAYS
                 {-} Collisions occur when the h(x) hash-function maps two keys to the same array slot (bucket).
                 {-} If thee hash-function is perfect then there are no collision.
                 {-} There are several approaches to deal with collisions: CHAINING , OPEN ADRESSING
+                {-} The size of the array should be a prime number in order to make sure the items are distributed uniformly - and there are as few collisions as possible.
                 
                 CHAINING 
                     <-> We store items in the same array (bucket) with same indexes in a llinked list data structure.
@@ -279,3 +280,4 @@ ASSOCIATIVE ARRAYS
                 HIGH LOAD FACTOR
                     <-> The hastable is nearly full which means high p(x) probability of collisions.
                     <-> No memory is wasted but the running time may be reduced to O(N) linear running time.
+
