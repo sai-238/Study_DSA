@@ -221,6 +221,7 @@ HEAP
             decrease key (swap) = O(1)
             merge               = O(1)    
 
+
 ASSOCIATIVE ARRAYS
     (-) Associative arrays ( maps and dictionaries ) are abstract data types.
     (-) Composed of a collection of key- valu pairs where eacch key appears at mosst once in the collection.
@@ -281,3 +282,6 @@ ASSOCIATIVE ARRAYS
                     <-> The hastable is nearly full which means high p(x) probability of collisions.
                     <-> No memory is wasted but the running time may be reduced to O(N) linear running time.
 
+
+GRAPHS 
+        
