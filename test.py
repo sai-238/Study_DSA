@@ -1,13 +1,11 @@
-st = "abc7de5"
-number = ""
-text = ""
-res = []
-for i in st :
-    if (i.isnumeric()):
-        number += i    
+string = "abc3b4c5"
+l , r = 0, 0
+res = ""
+for c in range(len(string)):
+    if string[c].isalpha():
+        r += 1
     else:
-        text += i
-res.append(text)      
-res.append(number)
-print(" The text and numbers are splited : " +str(res))
-
+        res +=  int(string[c]) * string[l:r]
+        r +=1
+        l = r
+print(res)
